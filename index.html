@@ -13,16 +13,16 @@
 </head>
 <body>
    <div id="app">
-      <h2>当前计数：{{ conuter }}</h2>
-      <button v-on:click="add">+</button>
-      <button v-on:click="sub">-</button>
+      <h2 v-html="url"></h2>
+     
+      
    </div>
    
    <script>
        const app = new Vue({
             el: '#app',
             data: {
-                conuter: 0
+                url: '<a href="http://www.baidu.com">百度一下</a>'
             } ,
             methods: {
                 add: function() {
