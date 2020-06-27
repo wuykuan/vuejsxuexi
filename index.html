@@ -17,12 +17,11 @@
 </head>
 <body>
    <div id="app">
-     <h2 > 总价格：{{ totalPrice }}</h2>
-     <p>
-         {{ fullName }}
-     </p>
-     
-      
+     <h2 > {{ getFullNmae }}</h2>
+     <h2 > {{ getFullNmae }}</h2>
+     <h2 > {{ getFullNmae }}</h2>
+     <h2 > {{ getFullNmae }}</h2>
+    
    </div>
    
    <script>
@@ -33,20 +32,12 @@
                lastName: 'yongkuan'
             },
             methods: { 
-                btnClick: function() {
-                    this.isActive = !this.isActive
-                }
+                
             },
             computed: {
-               fullName: {
-                   set: function() {
-
-                   },
-                   get: function() {
-                       return this.firstName + ' ' + this.lastName
-                   }
-
-               }
+                getFullNmae: function() {
+                    return this.firstName + '' + this.lastName
+                }
 
             }
        })
