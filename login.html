@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>vue用户登录切换的案例</title>
+    <style>
+        html,body,ul{
+            list-style: none;
+        }
+       
+    </style>
+</head>
+<body>
+   <div id="app">
+        <span v-if="isUser">
+           <label for="username">用户账号</label> 
+           <input type="text" id="username" placeholder="用户账号" key="username">
+        </span>
+        <span v-else="isUser">
+        <label for="usermail">用户邮箱</label>
+        <input type="text" id="usermail" placeholder="用户邮箱" key="usermail">    
+        </span>
+        <button @click="isUser = !isUser">切换登方式</button>
+   </div>
+   </div>
+   
+   <script>
+       const app = new Vue({
+            el: '#app',
+            data: {
+                isUser:true
+            },
+            methods: { 
+              
+            }
+            
+       })
+   </script>
+</body>
+</html>
