@@ -18,6 +18,9 @@
 <body>
    <div id="app">
      <h2 > 总价格：{{ totalPrice }}</h2>
+     <p>
+         {{ fullName }}
+     </p>
      
       
    </div>
@@ -26,12 +29,8 @@
        const app = new Vue({
             el: '#app',
             data: {
-               books: [
-                    { id:1, name: 'unix编程艺术', price: 119},
-                    { id:2, name: '代码大全', price: 155},
-                    { id:3, name: '深入理解计算机原理', price: 98},
-                    { id:4, name: '现代操作系统', price: 87},
-             ]
+               firstName: 'wu',
+               lastName: 'yongkuan'
             },
             methods: { 
                 btnClick: function() {
@@ -39,13 +38,15 @@
                 }
             },
             computed: {
-                totalPrice: function(){
-                    let result = 0
-                    for (let i = 0; i < this.books.length; i++ ){
-                        result += this.books[i].price
-                    }
-                    return result
-                }
+               fullName: {
+                   set: function() {
+
+                   },
+                   get: function() {
+                       return this.firstName + ' ' + this.lastName
+                   }
+
+               }
 
             }
        })
