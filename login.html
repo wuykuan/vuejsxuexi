@@ -37,6 +37,9 @@
             }
             
        })
+       //v-if条件为false时，压根不会有对应的元素在dom中
+       //v-show条件为false时，仅仅将元素的display属性设置为none而已
+       //当需要在显示与隐藏之间切换很频繁时，则使用v-show，当只有一次切换时，通常使用v-if
    </script>
 </body>
 </html>
