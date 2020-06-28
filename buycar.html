@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>vue的学习-书籍购物车（增删改查）</title>
+    <style>
+        html,body,ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+        }
+        table{
+            border:1px solid #e9e9e9;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th,td{
+            padding: 8px 16px;
+            border: 1px solid #e9e9e9;
+            text-align: center;
+        }
+        th{
+            background-color: #f7f7f7;
+            color: #5c6b77;
+            font-weight: 600;
+        }
+        
+    </style>
+</head>
+<body>
+   <div id="app">
+       <table>
+           <thead>
+               <tr>
+                   <th>编号</th>
+                   <th>书籍名称</th>
+                   <th>出版日期</th>
+                   <th>价格</th>
+                   <th>购买数量</th>
+                   <th>操作</th>
+               </tr>
+           </thead>
+           <tbody>
+                <tr v-for="item in books">
+                    <td> {{ item.id}}</td>
+                    <td> {{ item.name}}</td>
+                    <td> {{ item.date}}</td>
+                    <td> {{ item.price}}</td>
+                    <td> 
+                        <button>-</button>
+                        {{ item.count}}
+                        <button>+</button>
+                    </td>
+                    <td><button>移除</button></td>
+                </tr>
+           </tbody>
+       </table>
+  
+   </div>
+   
+   <script>
+       const app = new Vue({
+            el: '#app',
+            data: {
+               books: [
+                   {
+                       id: 1,
+                       name: '《算法1》',
+                       date: '2006-2',
+                       price: 85.00,
+                       count:1
+                   },
+                   {
+                       id: 2,
+                       name: '《算法2》',
+                       date: '2006-3',
+                       price: 85.00,
+                       count:1
+                   },
+                   {
+                       id: 3,
+                       name: '《算法3》',
+                       date: '2006-4',
+                       price: 80.00,
+                       count:1
+                   },
+                   {
+                       id: 4,
+                       name: '《算法4》',
+                       date: '2006-2',
+                       price: 75.00,
+                       count:1
+                   },
+               ]
+            },
+            methods: { 
+               liclick( index){
+                    this.currentIndex = index
+                }
+            }
+            
+       })
+       //书籍购物车
+   </script>
+</body>
+</html>
