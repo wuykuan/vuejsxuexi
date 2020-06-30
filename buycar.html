@@ -32,6 +32,7 @@
 </head>
 <body>
    <div id="app">
+    <div v-if="books.length">
        <table>
            <thead>
                <tr>
@@ -44,21 +45,23 @@
                </tr>
            </thead>
            <tbody>
-                <tr v-for="item in books">
+                <tr v-for="(item,index) in books">
                     <td> {{ item.id}}</td>
                     <td> {{ item.name}}</td>
                     <td> {{ item.date}}</td>
-                    <td> {{ getFinaPrice(item.price) }}</td>
+                    <td> {{ item.price}}</td>
                     <td> 
-                        <button>-</button>
+                        <button @click="decrement(index)" :disabled="item.count <=1">-</button>
                         {{ item.count}}
-                        <button>+</button>
+                        <button @click="indecrement(index)">+</button>
                     </td>
-                    <td><button>移除</button></td>
+                    <td><button @click="removeHand(index)">移除</button></td>
                 </tr>
            </tbody>
        </table>
        <h2>总价格：</h2>
+    </div>
+    <h2 v-else>购物车为空</h2>
    </div>
    
    <script>
@@ -97,14 +100,16 @@
                ]
             },
             methods: { 
-               
-                    getFinaPrice(price){
-                        return "¥" + price.toFixed(2)
-                    }
+                indecrement(index) {
+                    this.books[index].count++
+                },
+                decrement(index) {
+                    this.books[index].count--
+                },
+                removeHand(index){
+                    this.books.splice(index,1)
                 }
-            
-           
-            
+            }
        })
        //书籍购物车
    </script>
