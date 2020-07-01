@@ -18,14 +18,48 @@
 <body>
    
    <script>
-       const nums = [10, 20, 111, 333, 444, 40, 50]
-        // 1、需求：取出所有小于100的数字
-        nums.filter(function(n){ 
-            // filter中的回调函数有一个要求，必须返回一个boolean值
-            // 值是true时函数内部会自动将这次回调的n加入到新的数组中
-            // 值是false时，函数内部都会过滤掉这次的n
+//        const nums = [10, 20, 111, 333, 444, 40, 50]
+//         // 1、需求：取出所有小于100的数字（filter函数的使用）
+//   let newNums =   nums.filter(function(n){ 
+//             // filter中的回调函数有一个要求，必须返回一个boolean值
+//             // 值是true时函数内部会自动将这次回调的n加入到新的数组中
+//             // 值是false时，函数内部都会过滤掉这次的n
+//             return n < 100
             
-        })
+//         })
+//        //2、需求：将所有小于100的数乘2（map函数的使用）
+// let new2Nums =    newNums.map(function(n){
+//     //map 可以做新数组加减乘除 取模
+//         return n * 2
+//     })
+//       //3、需求：将所有数字相加（reduce函数的使用），reduce作用对数组中所用的内容进行汇总
+// let total =    new2Nums.reduce(function(preValue, n){
+//           //reduce prValue参数为上一次的值，n为数组的值
+//           return preValue + n
+
+//       },0)
+
+
+//  链式方法写
+// const nums = [10, 20, 111, 333, 444, 40, 50]
+// let total = nums.filter(function(n){
+//     return n<100
+// }).map(function(n){
+//     return n*2
+// }).reduce(function(oo,n){
+//     return oo + n
+// },0)
+
+// console.log(total)
+
+
+
+//es6箭头函数
+const nums = [10, 20, 111, 333, 444, 40, 50]
+let total = nums.filter(n =>n<100).map(n => n *2).reduce((pre,p)=> pre +p)
+console.log(total)
+
+
 
 
    </script>
