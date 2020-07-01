@@ -111,6 +111,7 @@
                 }
             },
             computed: {
+                // 1、原始方法
                 // totalPrice(){
                 //     let totalPrice = 0
                 //     for (let i = 0; i < this.books.length; i++){
@@ -118,14 +119,23 @@
                 //     }
                 //     return totalPrice
                 // }
+                
+                // totalPrice(){
+                //     let totalPrice = 0
+                //     for (let i in this.books){// 2、for in方法
+                //         totalPrice += this.books[i].price * this.books[i].count
+                //     }
+                //     return totalPrice
+                // }
 
                 totalPrice(){
                     let totalPrice = 0
-                    for (let i in this.books){
-                        totalPrice += this.books[i].price * this.books[i].count
+                    for (let item of this.books){// 3、for of方法
+                        totalPrice += item.price * item.count
                     }
                     return totalPrice
                 }
+
             }
        })
        //书籍购物车，综合案例
