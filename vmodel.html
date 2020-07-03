@@ -9,13 +9,11 @@
 </head>
 <body>
    <div id="app">
-       <label for="male">
-        <input type="radio" id="male" value="男" v-model="sex">男
+       <label for="agree">
+        <input type="checkbox" id="agree" v-model="isAgree">同意协议
        </label>
-       <label for="female">
-        <input type="radio" id="female" value="女" v-model="sex">女
-       </label>
-        <h2>您选择的性别是：{{ sex }}</h2>
+       <h2>您的选择是：{{ isAgree }}</h2>
+       <button :disabled="!isAgree">下一步</button>
    </div>   
    </div>
    
@@ -24,7 +22,8 @@
             el: '#app',
             data: {
                 message: '你好啊',
-                sex: '男'
+                sex: '男',
+                isAgree: false
             }
        })
        //v-model使用
