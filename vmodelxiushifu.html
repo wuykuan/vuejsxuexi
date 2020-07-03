@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>vue的学习</title>
+    <style>
+        html,body,ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       
+    </style>
+</head>
+<body>
+   <div id="app">
+        <!-- 1.修饰符： lazy -->
+        <input type="text" v-model.lazy="message">
+        <h2> {{ message }}</h2>
+        <!-- 2.修饰符： number -->
+        <input type="number" v-model="age">
+        <h2> {{ typeof age }}</h2>
+         <!-- 3.修饰符： trim -->
+         <input type="text" v-model.trim="name">
+         <h2>你输入的名字为： {{ name }}</h2>
+   </div>
+   
+   <script>
+       //在事件定义时，写方法时省略了小括号，但方法本身是需要一个参数的，这个时候，vue会默认将浏览器
+       //产生的event事件对象最为参数传入到方法
+       const app = new Vue({
+            el: '#app',
+            data: {
+               message: '你好啊',
+               age: '',
+               name: ''
+            },
+            methods: { 
+                btnclick(){
+                    this.letters[0]='ascdd6ewrfsfs'
+                }
+            }
+       })
+   </script>
+</body>
+</html>
