@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>vue的学习</title>
+</head>
+<body>
+   <div id="app">
+    <myzujain></myzujain>
+    <myzujain></myzujain>
+    <myzujain></myzujain>
+    <myzujain></myzujain>
+    <myzujain></myzujain>
+    <myzujain></myzujain>
+   </div>
+   
+   <script>
+       //1创建组件构造器对象
+    const cpnCous = Vue.extend({
+        template:`
+        <div>
+                <h2>我是标题</h2>
+                <p>我是内容p</p>
+                <p>我是内容p</p>
+        </div> `
+    })
+     //2,注册组件
+            Vue.component('myzujain', cpnCous)
+
+
+       //3vue的实例
+       const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好啊'
+            },
+            methods: { 
+            }
+            
+       })
+   </script>
+</body>
+</html>
