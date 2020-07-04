@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>vue的学习</title>
+</head>
+<body>
+   <div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+   </div>
+
+   
+   <script>
+       const cpnCous = Vue.extend({
+        template:`
+        <div>
+                <h2>我是标题</h2>
+                <p>我是内容p</p>
+                <p>我是内容p</p>
+        </div> `
+    })
+       const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好啊'
+            },
+            methods: { 
+            },
+            components: {
+                cpn: cpnCous
+            }
+            
+       })
+   </script>
+</body>
+</html>
