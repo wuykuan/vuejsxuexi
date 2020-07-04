@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/vue.js"></script>
-    <title>vue的学习</title>
+    <title>父子组件</title>
 </head>
 <body>
    <div id="app">
-    <cpn></cpn>
-    <cpn></cpn>
+    <cpn2></cpn2>
    </div>
 
    
    <script>
-       const cpnCous = Vue.extend({
+       const cpn1 = Vue.extend({
         template:`
         <div>
-                <h2>我是标题</h2>
-                <p>我是内容p</p>
-                <p>我是内容p</p>
-        </div> `
+                <h2>我是标题1</h2>
+                <p>我是内容p1</p>
+                <p>我是内容p1</p>
+        </div> 
+        `
+        
     })
+
+    const cpn2 = Vue.extend({
+        template:`
+        <div>
+            <h2>我是标题2</h2>
+                <p>我是内容p2</p>
+                <cpn1></cpn1>
+        </div>
+        `,
+        components: {
+            cpn1: cpn1
+        }
+    })
+
+
+
        const app = new Vue({
             el: '#app',
             data: {
@@ -30,7 +47,7 @@
             methods: { 
             },
             components: {
-                cpn: cpnCous
+                cpn2: cpn2
             }
             
        })
