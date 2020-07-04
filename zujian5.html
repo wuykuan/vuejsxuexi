@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>模版抽离</title>
+</head>
+<body>
+   <div id="app">
+    <cpn></cpn>
+   </div>
+<script type=" text/x-template"  id="cpn">
+    <div>
+        <h2>我是h2</h2>
+        <p>我是内容</p>
+    </div>
+</script>
+   <script>
+     Vue.components('cpn', {
+         template: '#cpn'
+     })
+
+
+
+       const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好啊'
+            },
+            methods: { 
+            },
+            components: {//局部组件
+            }
+            
+       })
+   </script>
+</body>
+</html>
