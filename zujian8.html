@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>父子组件通信</title>
+</head>
+<body>
+   <div id="app">
+        <cpn :cmovise="movise"></cpn>
+   </div>
+<template id="cpn"> 
+    <div>
+      <ul>
+          <li v-for="item in cmovise">{{ item }}</li>
+      </ul>
+    </div>
+
+</template>
+
+<script>
+    //父子组件通信
+        const cpn = {
+            template: '#cpn',
+            props: ['cmovise']
+        }
+
+       const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好啊',
+                movise: ['海王', '水王', '力王', '西王']
+            },
+            components: {
+                cpn
+
+            }
+       })
+   </script>
+</body>
+</html>
