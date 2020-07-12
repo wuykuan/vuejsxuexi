@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>父子组件通信双向绑定</title>
+</head>
+<body>
+    <!-- 父组件显示模版 -->
+   <div id="app">
+        <cpn @itemclick="cpnClick"></cpn>
+   </div>
+
+   <!-- 子组件模版 -->
+<template id="cpn"> 
+    <div>
+        <button v-for="item in categories" @click="btnclick(item)"> {{ item.name}}</button>
+    </div>
+</template>
+
+<script>
+    //子组件
+        const cpn = {
+            template: '#cpn',
+            // props: ['cmovise']
+            data() {
+                return {
+                    categories: [
+                        {id:'aa', name: '家电推荐'},
+                        {id:'bb', name: '手机数码'},
+                        {id:'cc', name: '家用电器'},
+                        {id:'dd', name: '热门推荐'}
+                    ]
+                }
+            },
+            methods: {
+                btnclick(item) {
+                    // 发射事件,自定义事件o474
+                    this.$emit('itemclick', item)
+                }
+            }
+        }
+    
+    //父组件，vue实例
+       const app = new Vue({
+            el: '#app',
+            data: {
+                message : '你好啊',
+                movise: ['海王', '水王', '力王', '西王']
+            },
+            components: {
+                cpn
+
+            },
+            methods: {
+                cpnClick(item){
+                    console.log('cpnClick',item)
+                }
+            }
+       })
+   </script>
+</body>
+</html>
