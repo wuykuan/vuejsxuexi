@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>具名插槽</title>
+</head>
+<body>
+    <!-- 父组件显示模版 -->
+   <div id="app">
+        <cpn> <span slot="center">标题</span></cpn>
+   </div>
+
+   <!-- 子组件模版 -->
+<template id="cpn"> 
+    <div>
+       <slot> <span name="left"> 左边的 </span> </slot>
+       <slot> <span name="center">asdf</span> </slot>
+       <slot> <span name="right"> 右边的 </span> </slot>
+      
+    </div>
+</template>
+
+<script>
+    //vue实例
+       const app = new Vue({
+            el: '#app',
+            data: {
+               num1 : 1
+            },
+            components: {
+                cpn: {
+                    template: '#cpn'
+                    
+                }
+            }
+       })
+   </script>
+</body>
+</html>

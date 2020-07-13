@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vue.js"></script>
+    <title>具名插槽</title>
+</head>
+<body>
+    <!-- 父组件显示模版 -->
+   <div id="app">
+        <cpn></cpn>
+        <cpn>
+                <template slot-scope="slot">
+                    <span v-for="item in slot.data">{{ item }}--</span>
+                </template>    
+        </cpn>
+   </div>
+
+   <!-- 子组件模版 -->
+<template id="cpn"> 
+    <div>
+      <ul>
+          <slot :data="planguages">
+          <li v-for="item in planguages"> {{ item }}</li>
+        </slot>
+      </ul>
+    </div>
+</template>
+
+<script>
+    //vue实例
+       const app = new Vue({
+            el: '#app',
+            data: {
+               num1 : 1
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                       return {
+                        planguages: ['javascript', 'java', 'php', 'go']
+                       }
+                    }
+                    
+                }
+            }
+       })
+   </script>
+</body>
+</html>
